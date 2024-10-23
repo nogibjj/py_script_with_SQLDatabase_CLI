@@ -18,21 +18,30 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
-      - name: install packages
+          
+      - name: Install packages
         run: make install
-      - name: lint
+        
+      - name: Lint
         run: make lint
-      - name: test
+        
+      - name: Test
         run: make test
-      - name: format
+        
+      - name: Format code
         run: make format
-      - name: deploy
-        run: make deploy
+
+      - name: Build package
+        run: python setup.py sdist bdist_wheel  # Explicit build command to generate files in ./dist
+
+      - name: List dist directory contents
+        run: ls -l ./dist  # This step will list the files in ./dist to verify they are created
+
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: packaged-tool
           path: ./dist/*
-      
-      
-        
+
+      - name: Deploy
+        run: make deploy  # Separate deploy step after uploading the artifact
