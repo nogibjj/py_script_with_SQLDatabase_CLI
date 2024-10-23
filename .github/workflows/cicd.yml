@@ -28,10 +28,11 @@ jobs:
         run: make format
       - name: deploy
         run: make deploy
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v2
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
         with:
           name: packaged-tool
           path: ./dist/*
+      
       
         
