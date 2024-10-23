@@ -1,18 +1,18 @@
-## Python Script interacting with SQL Database
+
+## ETL-Query Tool Package generation and interacting with SQL Database viw CLI
 ### By Tursunai Turumbekova
-[![CI](https://github.com/tursunait/py_script_with_SQLDatabase/actions/workflows/cicd.yml/badge.svg)](https://github.com/tursunait/py_script_with_SQLDatabase/actions/workflows/cicd.yml)
+[![CI](https://github.com/nogibjj/py_script_with_SQLDatabase_CLI/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/py_script_with_SQLDatabase_CLI/actions/workflows/cicd.yml)
 
 ## Project Overview
 
-This project demonstrates how to connect to a SQL database using Python, perform CRUD operations (Create, Read, Update, and Delete), and execute SQL queries. The project also implements a CI/CD pipeline to ensure database operations work correctly and continuously. All operations can be performed via the command-line interface (CLI).
+This is a Python command-line tool for performing ETL (Extract, Transform, Load) operations and CRUD operations on an SQLite database. The tool is packaged using setuptools and can be installed and used via the command line.
 
-### Key Features:
-- **Database Connection**: Establishes a connection to a SQLite database.
-- **CRUD Operations**: Supports creating, reading, updating, and deleting records in the database.
-- **SQL Queries**: Includes at least two distinct SQL queries to manipulate and retrieve data.
-- **CI/CD Pipeline**: Automatically tests the correctness of database operations through the CI/CD pipeline.
-- **Unit Tests**: Includes unit tests to verify the correct functionality of each CRUD operation.
-- **CLI-Based Operations**: All CRUD operations and SQL queries can be executed via the command-line interface (CLI).
+### Features:
+- **Extract Data**: Extract data from a given URL and save it to a local file.
+- **Transform & Load Data**: Transform and load the extracted data into an SQLite database.
+- **CRUD Operations**: Create, read, update, and delete records from the database.
+- **SQL Query Execution**: Run custom SQL queries on the SQLite database.
+
 
 ## File Structure
 
@@ -41,24 +41,27 @@ py_script_with_SQLDatabase/
 
 ## Installation
 
-1. Clone the repository:
+To install this tool, you can clone the repository and install it using `pip`:
+
+1. **Clone the repository**:
     ```bash
-    git clone https://github.com/tursunait/py_script_with_SQLDatabase.git
-    cd py_script_with_SQLDatabase
+    git clone https://github.com/nogibjj/py_script_with_SQLDatabase_CLI.git
+    cd py_script_with_SQLDatabase_CLI
     ```
 
-2. Set up the virtual environment and install dependencies:
+2. **Install the package**:
     ```bash
-    python -m venv myenvironment
-    source myenvironment/bin/activate  # On Windows use: myenvironment\Scripts\activate
-    pip install -r requirements.txt
+    pip install .
     ```
+## Accessing the Package
 
-3. Run the script:
+Once the package is installed, you can access and run the command-line tool `etl_query_tool` directly from your terminal. The tool provides various options to perform ETL and CRUD operations on an SQLite database. 
+
+To confirm that the tool is installed and accessible, you can run:
+
     ```bash
-    python main.py
+    etl_query_tool --help
     ```
-
 ## Sample CRUD Operations
 
 You can run the following commands via CLI to perform CRUD operations in the database:
