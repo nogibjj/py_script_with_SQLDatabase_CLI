@@ -31,6 +31,7 @@ py_script_with_SQLDatabase/
 ├── .github/
 │   └── workflows/            # CI/CD pipeline configurations
 │
+├── setup.py                  # Sets up etl_query_tool application to run operation through CLI  
 ├── main.py                   # Main script for executing CRUD operations via CLI
 ├── test_main.py              # Unit tests for the CRUD operations
 ├── Makefile                  # Automation for testing, linting, and formatting
@@ -64,27 +65,27 @@ You can run the following commands via CLI to perform CRUD operations in the dat
 
 - **Create**:
     ```bash
-    python main.py create_rec 1 'Alabama' 'G0100010' 32.3182 -86.9023 50000 100.5 1.0
+    etl_query_tool create_rec 1 'Alabama' 'G0100010' 32.3182 -86.9023 50000 100.5 1.0
     ```
 
 - **Read**:
     ```bash
-    python main.py read_data
+    etl_query_tool read_data
     ```
 
 - **Update**:
     ```bash
-    python main.py update_rec 1 'Alabama' 'G0100010' 32.3182 -86.9023 60000 120.5 2.0
+    etl_query_tool update_rec 1 'Alabama' 'G0100010' 32.3182 -86.9023 60000 120.5 2.0
     ```
 
 - **Delete**:
     ```bash
-    python main.py delete_rec 'G0100010'
+    etl_query_tool delete_rec 'G0100010'
     ```
 
 - **Execute General Query**:
     ```bash
-    python main.py general_query "SELECT * FROM urbanizationDB WHERE state = 'Alabama';"
+    etl_query_tool general_query "SELECT * FROM urbanizationDB WHERE state = 'Alabama';"
     ```
 ![CLI](CLI.png)
 
@@ -114,26 +115,26 @@ Each query is stored in a Markdown file **(query_log.md)**, providing a clear hi
 
 ## How to Use
 
-### Running CRUD Operations:
+### Running CRUD Operations in Comand Line:
 
 - **Create Record**:
     ```bash
-    python main.py create_rec <statefips> <state> <gisjoin> <lat_tract> <long_tract> <population> <adj_radiuspop_5> <urbanindex>
+    etl_query_tool create_rec <statefips> <state> <gisjoin> <lat_tract> <long_tract> <population> <adj_radiuspop_5> <urbanindex>
     ```
 
 - **Read Data**:
     ```bash
-    python main.py read_data
+    etl_query_tool read_data
     ```
 
 - **Update Record**:
     ```bash
-    python main.py update_rec <statefips> <state> <gisjoin> <lat_tract> <long_tract> <population> <adj_radiuspop_5> <urbanindex>
+    etl_query_tool update_rec <statefips> <state> <gisjoin> <lat_tract> <long_tract> <population> <adj_radiuspop_5> <urbanindex>
     ```
 
 - **Delete Record**:
     ```bash
-    python main.py delete_rec <gisjoin>
+    etl_query_tool delete_rec <gisjoin>
     ```
 
 - **Execute General Query**:
