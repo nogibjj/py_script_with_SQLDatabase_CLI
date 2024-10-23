@@ -14,20 +14,26 @@ jobs:
         python-version: [3.7, 3.8, 3.9]
     steps:
       - uses: actions/checkout@v3
+
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
-          
+
+      - name: Install wheel and setuptools
+        run: |
+          pip install --upgrade pip
+          pip install wheel setuptools  # Install wheel to support bdist_wheel
+
       - name: Install packages
         run: make install
-        
+
       - name: Lint
         run: make lint
-        
+
       - name: Test
         run: make test
-        
+
       - name: Format code
         run: make format
 
